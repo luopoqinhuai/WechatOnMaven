@@ -39,6 +39,20 @@
 		class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
 		<property name="properties" ref="configProperties" />
 	</bean>
+	
+	
+	 <mvc:interceptors>  
+        <mvc:interceptor>  
+            <!-- 需拦截的地址 -->  
+            <mvc:mapping path="/mvc/*" />  
+            <!-- 需排除拦截的地址 -->  
+            <mvc:exclude-mapping path="/login.htm"/>  
+            <mvc:exclude-mapping path="/css/*.css"/>  
+            
+            <bean class="com.reno.web.interceptor.SecurityInterceptor" />  
+        </mvc:interceptor>  
+    </mvc:interceptors>  
+	
 
 
 
